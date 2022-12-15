@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Objects;
-
 public class Main {
     public static Employee[] employeesArray = new Employee [10];
     public static void main(String[] args) {
@@ -18,7 +15,6 @@ public class Main {
         Methods.calculateSum(employeesArray);
         Methods.findMinSalary(employeesArray);
         Methods.findMaxSalary(employeesArray);
-        Methods.findMaxID(employeesArray);
         Methods.averageNumber(employeesArray);
         Methods.getOnlyName(employeesArray);
     }

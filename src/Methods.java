@@ -2,7 +2,7 @@ public class Methods {
     public static void fullList(Employee[] employeesArray) {
         for (Employee employee : employeesArray) {
             if (employee != null) {
-                System.out.println(employee);
+                System.out.println(employee.getFullName());
             }
         }
     }
@@ -11,7 +11,7 @@ public class Methods {
         int sum = 0;
         for (int i = 0; i < employeesArray.length; i++) {
             if (employeesArray[i] != null) {
-                sum += employeesArray[i].getSalary(employeesArray);
+                sum += employeesArray[i].getSalary();
             }
         }
         System.out.println("Сумма выплат составит: " + sum);
@@ -19,13 +19,13 @@ public class Methods {
     }
 
     public static int findMinSalary(Employee[] employeesArray) {
-        int minSalary = employeesArray[0].getSalary(employeesArray);
+        int minSalary = employeesArray[0].getSalary();
         String employeeName;
-        employeeName = employeesArray[0].getEmployeeLastName(employeesArray) + employeesArray[0].getEmployeeFirstName(employeesArray) + employeesArray[0].getEmployeePatronymicName(employeesArray);
+        employeeName = employeesArray[0].getFullName();
         for (int i = 0; i < employeesArray.length; i++) {
-            if (employeesArray[i] != null && minSalary > employeesArray[i].getSalary(employeesArray)) {
-                minSalary = employeesArray[i].getSalary(employeesArray);
-                employeeName = employeesArray[i].getEmployeeLastName(employeesArray) + employeesArray[i].getEmployeeFirstName(employeesArray) + "  " + employeesArray[i].getEmployeePatronymicName(employeesArray);
+            if (employeesArray[i] != null && employeesArray[i].getSalary() < minSalary) {
+                minSalary = employeesArray[i].getSalary();
+                employeeName = employeeName = employeesArray[i].getEmployeeLastName() + employeesArray[i].getEmployeeFirstName() + employeesArray[i].getEmployeePatronymicName();
             }
             System.out.println("Самая низкая зарплата в компании у " + employeeName + " и она составляет: " + minSalary);
         }
@@ -33,13 +33,13 @@ public class Methods {
     }
 
     public static int findMaxSalary(Employee[] employeesArray) {
-        int maxSalary = employeesArray[0].getSalary(employeesArray);
+        int maxSalary = employeesArray[0].getSalary();
         String employeeName;
-        employeeName = employeesArray[0].getEmployeeLastName(employeesArray) + employeesArray[0].getEmployeeFirstName(employeesArray) + employeesArray[0].getEmployeePatronymicName(employeesArray);
+        employeeName = employeesArray[0].getFullName();
         for (int i = 0; i < employeesArray.length; i++) {
-            if (employeesArray[i] != null && employeesArray[i].getSalary(employeesArray) > maxSalary) {
-                maxSalary = employeesArray[i].getSalary(employeesArray);
-                employeeName = employeesArray[i].getEmployeeLastName(employeesArray) + employeesArray[i].getEmployeeFirstName(employeesArray) + "  " + employeesArray[i].getEmployeePatronymicName(employeesArray);
+            if (employeesArray[i] != null && employeesArray[i].getSalary() > maxSalary) {
+                maxSalary = employeesArray[i].getSalary();
+                employeeName = employeesArray[i].getEmployeeLastName() + employeesArray[i].getEmployeeFirstName() + employeesArray[i].getEmployeePatronymicName();
             }
             System.out.println("Самая высокая зарплата в компании у " + employeeName + " и она составляет: " + maxSalary);
         }
@@ -47,10 +47,10 @@ public class Methods {
     }
 
     public static int findMaxID(Employee[] employeesArray) {
-        int maxID = employeesArray[0].getId(employeesArray);
+        int maxID = employeesArray[0].getId();
         for (int i = 0; i < employeesArray.length; i++)
-            if (employeesArray[i] != null && maxID < employeesArray[i].getSalary(employeesArray)) {
-                maxID = employeesArray[i].getId(employeesArray);
+            if (employeesArray[i] != null && maxID < employeesArray[i].getSalary()) {
+                maxID = employeesArray[i].getId();
             }
         System.out.println(maxID);
         return maxID;
@@ -62,10 +62,10 @@ public class Methods {
         return average;
     }
     public static String getOnlyName (Employee[] employeesArray) {
-        String onlyName = employeesArray[0].getEmployeeLastName(employeesArray) + employeesArray[0].getEmployeeFirstName(employeesArray) + employeesArray[0].getEmployeePatronymicName(employeesArray);
+        String onlyName = employeesArray[0].getEmployeeLastName() + employeesArray[0].getEmployeeFirstName() + employeesArray[0].getEmployeePatronymicName();
         for (int i = 0; i < employeesArray.length; i++) {
             if (employeesArray[i] != null) {
-                onlyName = employeesArray[i].getEmployeeLastName(employeesArray) + employeesArray[i].getEmployeeFirstName(employeesArray) + employeesArray[i].getEmployeePatronymicName(employeesArray);
+                onlyName = employeesArray[i].getEmployeeLastName() + employeesArray[i].getEmployeeFirstName() + employeesArray[i].getEmployeePatronymicName();
                 System.out.println("ФИО работника - " + onlyName);
             }
         }

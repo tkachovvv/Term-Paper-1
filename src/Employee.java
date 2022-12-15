@@ -18,22 +18,22 @@ public class Employee {
         this.department = department;
     }
 
-    public String getEmployeeLastName(Employee[]employeesArray) {
+    public String getEmployeeLastName() {
         return employeeLastName;
     }
 
-    public String getEmployeeFirstName(Employee[]employeesArray) {
+    public String getEmployeeFirstName() {
         return employeeFirstName;
     }
 
-    public String getEmployeePatronymicName(Employee[]employeesArray) {
+    public String getEmployeePatronymicName() {
         return employeePatronymicName;
     }
-    public int getSalary(Employee[]employeesArray) {
+    public int getSalary() {
         return salary;
     }
 
-    public int getDepartment(Employee[]employeesArray) {
+    public int getDepartment() {
         return department;
     }
 
@@ -44,7 +44,7 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
-    public int getId (Employee[]employeesArray) {
+    public int getId () {
         return id;
     }
 
@@ -52,7 +52,7 @@ public class Employee {
     public int hashCode() {
           return Objects.hash(id);
     }
-    public String toString() {
+    public String getFullName() {
         return employeeLastName + employeeFirstName + employeePatronymicName + " " + department + " " + salary + " " + id;
     }
 }
