@@ -1,9 +1,11 @@
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 public class Employee {
     private final String employeeLastName;
     private final String employeeFirstName;
     private final String employeePatronymicName;
-    private int id;
+    private final int id;
+    private static int counter = 1;
     private int salary;
     private int department;
 
@@ -11,8 +13,8 @@ public class Employee {
         this.employeeLastName = employeeLastName;
         this.employeeFirstName = employeeFirstName;
         this.employeePatronymicName = employeePatronymicName;
+        this.id = counter++;
         this.salary = salary;
-        this.id = id;
         this.department = department;
     }
 
@@ -42,12 +44,16 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
-    private static final AtomicInteger COUNTER = new AtomicInteger(1);
-      public void IdCounter () {
-          id = COUNTER.getAndIncrement();
-    }
     public int getId () {
-          return id;
+        return id;
+    }
+
+    @Override
+    public int hashCode() {
+          return Objects.hash(id);
+    }
+    public String getFullName() {
+        return employeeLastName + employeeFirstName + employeePatronymicName + " " + department + " " + salary + " " + id;
     }
 }
 
